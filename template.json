@@ -1,0 +1,1469 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworks_BOSCH_SEC2_0_VNET01_name": {
+            "defaultValue": "BOSCH-SEC2.0-VNET01",
+            "type": "String"
+        },
+        "routeTables_WAF_RT_externalid": {
+            "defaultValue": "/subscriptions/19cf3375-c7aa-4b96-b8d0-f0c4f40509dd/resourceGroups/BOSCH-SEC2.0-RG/providers/Microsoft.Network/routeTables/WAF-RT",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_SEC_VNET01_externalid": {
+            "defaultValue": "/subscriptions/19cf3375-c7aa-4b96-b8d0-f0c4f40509dd/resourceGroups/BOSCH-SEC-RG/providers/Microsoft.Network/virtualNetworks/BOSCH-SEC-VNET01",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_Tool2Go_vnet01_externalid": {
+            "defaultValue": "/subscriptions/be5695ba-b355-45bd-9e69-9331d7de6e1e/resourceGroups/BOSCH-Tool2Go-vnet-RG/providers/Microsoft.Network/virtualNetworks/BOSCH-Tool2Go-vnet01",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_Tool2Go_cn2_vnet01_externalid": {
+            "defaultValue": "/subscriptions/be5695ba-b355-45bd-9e69-9331d7de6e1e/resourceGroups/BOSCH-Tool2Go-vnet-RG-cn2/providers/Microsoft.Network/virtualNetworks/BOSCH-Tool2Go-cn2-vnet01",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_RBCC_KARIS_Vnet_externalid": {
+            "defaultValue": "/subscriptions/a6c72abb-52be-4647-898b-4b0ca91442b2/resourceGroups/RG-BOSCH-RBCC-KARIS/providers/Microsoft.Network/virtualNetworks/BOSCH-RBCC-KARIS-Vnet",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_BETMS_VNET01_externalid": {
+            "defaultValue": "/subscriptions/337a7fb7-eef1-4e95-99a8-1f5081aaf03e/resourceGroups/BOSCH_BETMS_P/providers/Microsoft.Network/virtualNetworks/BOSCH_BETMS_VNET01",
+            "type": "String"
+        },
+        "virtualNetworks_vnet_core_dev_north2_001_externalid": {
+            "defaultValue": "/subscriptions/dbe5618c-09b2-4ad7-b844-d03f015cf2d0/resourceGroups/rg-core-dev-north2-001/providers/Microsoft.Network/virtualNetworks/vnet-core-dev-north2-001",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_mytransform_VNET0_externalid": {
+            "defaultValue": "/subscriptions/83b018df-a97e-4158-92ea-86bb738dff77/resourceGroups/BOSCH-mytransform-RG/providers/Microsoft.Network/virtualNetworks/BOSCH-mytransform-VNET0",
+            "type": "String"
+        },
+        "virtualNetworks_MISPlus_VN_P_externalid": {
+            "defaultValue": "/subscriptions/ddeddc6e-6f83-4789-8c96-b3042bbcaa62/resourceGroups/BOSCH_BCI_MISPlus_P/providers/Microsoft.Network/virtualNetworks/MISPlus_VN_P",
+            "type": "String"
+        },
+        "virtualNetworks_robot_vnet_externalid": {
+            "defaultValue": "/subscriptions/3dd1e1ec-944b-464b-a16f-2dd2a5e246ae/resourceGroups/robot/providers/Microsoft.Network/virtualNetworks/robot-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_wsms_vnet_externalid": {
+            "defaultValue": "/subscriptions/324fdd71-5908-45aa-90ed-905c0b7a8afc/resourceGroups/wsms/providers/Microsoft.Network/virtualNetworks/wsms-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_vn_cn3_prod_dataplatform_01_externalid": {
+            "defaultValue": "/subscriptions/01da1dce-0dd7-4272-b54c-fd038d8a401c/resourceGroups/BOSCH-DataPlatform-RG-Prod-Network/providers/Microsoft.Network/virtualNetworks/vn-cn3-prod-dataplatform-01",
+            "type": "String"
+        },
+        "virtualNetworks_VNetWeb01_externalid": {
+            "defaultValue": "/subscriptions/f28fb9b5-bb3d-43a8-8c5c-e40fcfcad6af/resourceGroups/SmartCampusResources/providers/Microsoft.Network/virtualNetworks/VNetWeb01",
+            "type": "String"
+        },
+        "virtualNetworks_bosch_pkp_prd_vm_vnet_externalid": {
+            "defaultValue": "/subscriptions/a52fa66f-e579-4503-916c-cf5832de0910/resourceGroups/BOSCH-PKP-PRD/providers/Microsoft.Network/virtualNetworks/bosch-pkp-prd-vm-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_PKP_PRD_vnet_externalid": {
+            "defaultValue": "/subscriptions/a52fa66f-e579-4503-916c-cf5832de0910/resourceGroups/BOSCH-PKP-PRD/providers/Microsoft.Network/virtualNetworks/BOSCH-PKP-PRD-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_PKP_UAT_vnet_externalid": {
+            "defaultValue": "/subscriptions/a52fa66f-e579-4503-916c-cf5832de0910/resourceGroups/BOSCH-PKP-UAT/providers/Microsoft.Network/virtualNetworks/BOSCH-PKP-UAT-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCHPKPUATvnet848_externalid": {
+            "defaultValue": "/subscriptions/a52fa66f-e579-4503-916c-cf5832de0910/resourceGroups/BOSCH-PKP-UAT/providers/Microsoft.Network/virtualNetworks/BOSCHPKPUATvnet848",
+            "type": "String"
+        },
+        "virtualNetworks_bosch_dccn_microsite_vnet01_externalid": {
+            "defaultValue": "/subscriptions/416b1586-bc52-4746-a163-abc681919a75/resourceGroups/bosch-dccn-vnet-RG/providers/Microsoft.Network/virtualNetworks/bosch-dccn-microsite-vnet01",
+            "type": "String"
+        },
+        "virtualNetworks_bosch_dccn_wechat_vnet01_externalid": {
+            "defaultValue": "/subscriptions/416b1586-bc52-4746-a163-abc681919a75/resourceGroups/bosch-dccn-vnet-RG/providers/Microsoft.Network/virtualNetworks/bosch-dccn-wechat-vnet01",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_SAH_VNET0_externalid": {
+            "defaultValue": "/subscriptions/04395be0-0ec0-4391-bb0a-eda99ce35acc/resourceGroups/BOSCH-SAH-RG/providers/Microsoft.Network/virtualNetworks/BOSCH-SAH-VNET0",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_GS_Nibo_Prod_externalid": {
+            "defaultValue": "/subscriptions/4ef643dd-65ff-484b-a0bd-aa1c20c3881f/resourceGroups/BOSCH-GS-Nibo-Prod-RG/providers/Microsoft.Network/virtualNetworks/BOSCH-GS-Nibo-Prod",
+            "type": "String"
+        },
+        "virtualNetworks_bosch_esignature_UAT_vnet_externalid": {
+            "defaultValue": "/subscriptions/037bbd36-4512-4af1-84d7-3b0678a14a8e/resourceGroups/bosch_esignature_UAT/providers/Microsoft.Network/virtualNetworks/bosch_esignature_UAT-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_bosch_ihotlinechatbot_aks_prd_vnet_externalid": {
+            "defaultValue": "/subscriptions/62cabad6-9ca4-4d50-ba60-6c61da979634/resourceGroups/BOSCH-IHotlineChatbot-AKS-PRD-RG/providers/Microsoft.Network/virtualNetworks/bosch-ihotlinechatbot-aks-prd-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_IHotlineChatbot_AKS_VNET01_externalid": {
+            "defaultValue": "/subscriptions/62cabad6-9ca4-4d50-ba60-6c61da979634/resourceGroups/BOSCH-IHotlineChatbot-Network/providers/Microsoft.Network/virtualNetworks/BOSCH-IHotlineChatbot-AKS-VNET01",
+            "type": "String"
+        },
+        "virtualNetworks_IHotlineChatbot_vnet_externalid": {
+            "defaultValue": "/subscriptions/62cabad6-9ca4-4d50-ba60-6c61da979634/resourceGroups/IHotlineChatbot/providers/Microsoft.Network/virtualNetworks/IHotlineChatbot-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_IHotlineChatbotProduct_vnet_externalid": {
+            "defaultValue": "/subscriptions/62cabad6-9ca4-4d50-ba60-6c61da979634/resourceGroups/IHotlineChatbotProduct/providers/Microsoft.Network/virtualNetworks/IHotlineChatbotProduct-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_TT_eLearning_Vnet_externalid": {
+            "defaultValue": "/subscriptions/2958b6b6-c59e-487e-9de2-fa1314774686/resourceGroups/BOSCH-TT-eLearning-prod-RG/providers/Microsoft.Network/virtualNetworks/BOSCH-TT-eLearning-Vnet",
+            "type": "String"
+        },
+        "virtualNetworks_BOSCH_GS_ACC_OutputInvoicePlatform_RG_0_vnet_externalid": {
+            "defaultValue": "/subscriptions/a74a4dad-240a-4f80-a486-c66bb323a807/resourceGroups/BOSCH-GS-ACC-OutputInvoicePlatform-RG-0/providers/Microsoft.Network/virtualNetworks/BOSCH-GS-ACC-OutputInvoicePlatform-RG-0-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_dccn_agw_vnet_externalid": {
+            "defaultValue": "/subscriptions/74c508e5-86e3-4ff2-ab5c-eb15cebec2d6/resourceGroups/bosch-dccn-vnet-RG/providers/Microsoft.Network/virtualNetworks/dccn-agw-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_pip3_internel_vnet_externalid": {
+            "defaultValue": "/subscriptions/1e60e7c1-3f31-4774-b717-ca63d5d9117b/resourceGroups/DefaultResourceGroup-CNE2-chinanorth3/providers/Microsoft.Network/virtualNetworks/pip3-internel-vnet",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2020-11-01",
+            "name": "[parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name')]",
+            "location": "chinaeast2",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.50.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "AzureFireWallSubnet",
+                        "properties": {
+                            "addressPrefix": "10.50.3.0/24",
+                            "serviceEndpoints": [
+                                {
+                                    "service": "Microsoft.Storage",
+                                    "locations": [
+                                        "chinaeast2",
+                                        "chinanorth2"
+                                    ]
+                                }
+                            ],
+                            "delegations": [],
+                            "privateEndpointNetworkPolicies": "Disabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        }
+                    },
+                    {
+                        "name": "AzureBastionSubnet",
+                        "properties": {
+                            "addressPrefix": "10.50.0.0/24",
+                            "serviceEndpoints": [
+                                {
+                                    "service": "Microsoft.Storage",
+                                    "locations": [
+                                        "chinaeast2",
+                                        "chinanorth2"
+                                    ]
+                                }
+                            ],
+                            "delegations": [],
+                            "privateEndpointNetworkPolicies": "Disabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        }
+                    },
+                    {
+                        "name": "waf01-subnet",
+                        "properties": {
+                            "addressPrefix": "10.50.2.0/24",
+                            "routeTable": {
+                                "id": "[parameters('routeTables_WAF_RT_externalid')]"
+                            },
+                            "serviceEndpoints": [
+                                {
+                                    "service": "Microsoft.Storage",
+                                    "locations": [
+                                        "chinaeast2",
+                                        "chinanorth2"
+                                    ]
+                                }
+                            ],
+                            "delegations": [],
+                            "privateEndpointNetworkPolicies": "Disabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [
+                    {
+                        "name": "to-sec1.0",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_SEC_VNET01_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.4.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-Tool2Go-vnet01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_Tool2Go_vnet01_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.27.0.0/24"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-Tool2Go-cn2-vnet01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_Tool2Go_cn2_vnet01_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.49.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to-BOSCH-RBCC-KARIS-Vnet",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_RBCC_KARIS_Vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.37.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to-BOSCH-PT-ToolingConnectivity",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_BETMS_VNET01_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.28.0.0/24"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to-BOSCH-CI-REDLake-CN-Dev",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_vnet_core_dev_north2_001_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.46.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-BTC-MyTransform_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_mytransform_VNET0_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.22.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-BCI-MISPlus_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_MISPlus_VN_P_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.19.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-CI-Chatbot-VendorInvoiceInquiry_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_robot_vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.29.1.0/24"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-AA-Opener_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_wsms_vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.26.5.0/24"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-AA-DataPlatform-Prod_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_vn_cn3_prod_dataplatform_01_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.48.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-SEC-BOSCH-SmartCampus_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_VNetWeb01_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.1.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-DC-PKP-ORG_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_bosch_pkp_prd_vm_vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.45.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-DC-PKP-ORG_VNET02",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_PKP_PRD_vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "172.26.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-DC-PKP-ORG_VNET03",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_PKP_UAT_vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.40.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-DC-PKP-ORG_VNET04",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCHPKPUATvnet848_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "172.16.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-DC-CN-WeChat_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_bosch_dccn_microsite_vnet01_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.25.1.0/24"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-DC-CN-WeChat_VNET02",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_bosch_dccn_wechat_vnet01_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.25.0.0/24"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-PT-CallCenterSystem_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_SAH_VNET0_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.23.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-GS-Nibo-Pro_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_GS_Nibo_Prod_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.47.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-CIDAV-Isignature_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_bosch_esignature_UAT_vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.43.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-GS-HRS-IHotlineChatbot_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_bosch_ihotlinechatbot_aks_prd_vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.35.2.0/24"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-GS-HRS-IHotlineChatbot_VNET02",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_IHotlineChatbot_AKS_VNET01_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.36.0.0/22"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-GS-HRS-IHotlineChatbot_VNET03",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_IHotlineChatbot_vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.35.1.0/24"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-GS-HRS-IHotlineChatbot_VNET04",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_IHotlineChatbotProduct_vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.35.0.0/24"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-TT-eLearning_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_TT_eLearning_Vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.44.0.0/16"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-GS-ACC-OutputInvoicePlatform_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_BOSCH_GS_ACC_OutputInvoicePlatform_RG_0_vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.31.0.0/24"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-DCCN-DS-Prod_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_dccn_agw_vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.34.0.0/24"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "to_BOSCH-PIP3_VNET01",
+                        "properties": {
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[parameters('virtualNetworks_pip3_internel_vnet_externalid')]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "192.168.80.0/24"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "enableDdosProtection": false
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/AzureBastionSubnet')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "addressPrefix": "10.50.0.0/24",
+                "serviceEndpoints": [
+                    {
+                        "service": "Microsoft.Storage",
+                        "locations": [
+                            "chinaeast2",
+                            "chinanorth2"
+                        ]
+                    }
+                ],
+                "delegations": [],
+                "privateEndpointNetworkPolicies": "Disabled",
+                "privateLinkServiceNetworkPolicies": "Enabled"
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/AzureFireWallSubnet')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "addressPrefix": "10.50.3.0/24",
+                "serviceEndpoints": [
+                    {
+                        "service": "Microsoft.Storage",
+                        "locations": [
+                            "chinaeast2",
+                            "chinanorth2"
+                        ]
+                    }
+                ],
+                "delegations": [],
+                "privateEndpointNetworkPolicies": "Disabled",
+                "privateLinkServiceNetworkPolicies": "Enabled"
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/waf01-subnet')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "addressPrefix": "10.50.2.0/24",
+                "routeTable": {
+                    "id": "[parameters('routeTables_WAF_RT_externalid')]"
+                },
+                "serviceEndpoints": [
+                    {
+                        "service": "Microsoft.Storage",
+                        "locations": [
+                            "chinaeast2",
+                            "chinanorth2"
+                        ]
+                    }
+                ],
+                "delegations": [],
+                "privateEndpointNetworkPolicies": "Disabled",
+                "privateLinkServiceNetworkPolicies": "Enabled"
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-AA-DataPlatform-Prod_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_vn_cn3_prod_dataplatform_01_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.48.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-AA-Opener_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_wsms_vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.26.5.0/24"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-BCI-MISPlus_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_MISPlus_VN_P_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.19.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-BTC-MyTransform_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_mytransform_VNET0_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.22.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-CI-Chatbot-VendorInvoiceInquiry_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_robot_vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.29.1.0/24"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-CIDAV-Isignature_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_bosch_esignature_UAT_vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.43.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-DCCN-DS-Prod_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_dccn_agw_vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.34.0.0/24"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-DC-CN-WeChat_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_bosch_dccn_microsite_vnet01_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.25.1.0/24"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-DC-CN-WeChat_VNET02')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_bosch_dccn_wechat_vnet01_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.25.0.0/24"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-DC-PKP-ORG_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_bosch_pkp_prd_vm_vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.45.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-DC-PKP-ORG_VNET02')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_PKP_PRD_vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "172.26.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-DC-PKP-ORG_VNET03')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_PKP_UAT_vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.40.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-DC-PKP-ORG_VNET04')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCHPKPUATvnet848_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "172.16.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-GS-ACC-OutputInvoicePlatform_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_GS_ACC_OutputInvoicePlatform_RG_0_vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.31.0.0/24"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-GS-HRS-IHotlineChatbot_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_bosch_ihotlinechatbot_aks_prd_vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.35.2.0/24"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-GS-HRS-IHotlineChatbot_VNET02')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_IHotlineChatbot_AKS_VNET01_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.36.0.0/22"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-GS-HRS-IHotlineChatbot_VNET03')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_IHotlineChatbot_vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.35.1.0/24"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-GS-HRS-IHotlineChatbot_VNET04')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_IHotlineChatbotProduct_vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.35.0.0/24"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-GS-Nibo-Pro_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_GS_Nibo_Prod_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.47.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-PIP3_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_pip3_internel_vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "192.168.80.0/24"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-PT-CallCenterSystem_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_SAH_VNET0_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.23.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-SEC-BOSCH-SmartCampus_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_VNetWeb01_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.1.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-Tool2Go-cn2-vnet01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_Tool2Go_cn2_vnet01_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.49.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-Tool2Go-vnet01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_Tool2Go_vnet01_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.27.0.0/24"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to_BOSCH-TT-eLearning_VNET01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_TT_eLearning_Vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.44.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to-BOSCH-CI-REDLake-CN-Dev')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_vnet_core_dev_north2_001_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.46.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to-BOSCH-PT-ToolingConnectivity')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_BETMS_VNET01_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.28.0.0/24"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to-BOSCH-RBCC-KARIS-Vnet')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_RBCC_KARIS_Vnet_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.37.0.0/16"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'), '/to-sec1.0')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_BOSCH_SEC2_0_VNET01_name'))]"
+            ],
+            "properties": {
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[parameters('virtualNetworks_BOSCH_SEC_VNET01_externalid')]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.4.0.0/16"
+                    ]
+                }
+            }
+        }
+    ]
+}
