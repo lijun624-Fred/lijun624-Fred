@@ -12,5 +12,4 @@ with open('template.json', mode='r') as f:
     for peer in data2['resources'][0]['properties']['virtualNetworkPeerings']:
         # print(peer['name'])
         # print(peer['properties']['remoteAddressSpace']['addressPrefixes'][0])
-        temp_name = peer['properties']['remoteVirtualNetwork']['id'][29:]
-        print(temp_name[:-14])
+        print(peer['properties']['remoteVirtualNetwork']['id'][29:-14])
