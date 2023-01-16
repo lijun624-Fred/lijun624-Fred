@@ -21,5 +21,12 @@ app_service_var = {
     dbuser         = "admindemo4"
     dbpass         = "Demo4sql"
     pip3_tag       = "pip3"
-    
+}
+
+postgre_sql_var = {
+    private_dns_name = "demo4-sql.private.postgres.database.chinacloudapi.cn"
+    sql_version      = "14"
+    zone             = "1"
+    storage_mb       = 32768
+    sku_name         = "B_Standard_B1ms"
 }
