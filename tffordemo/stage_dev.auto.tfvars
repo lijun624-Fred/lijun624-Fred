@@ -12,10 +12,16 @@ app_service_var = {
     app_name       = "demo4"
     plan_name      = "ASP-DefaultResourceGroupCNE2chinano-81bf"
     plan_tier      = "Basic"
-    plan_size      = "Small"
+    plan_size      = "B1"
+    kind           = "linux"
+    reserved       = "true"
+    https          = "true"
     scm_type       = "ExternalGit"
+    bit_worker     = "true"
     dbhost         = "demo4-sql.postgres.database.chinacloudapi.cn"
     dbname         = "postgres"
     dbuser         = "admindemo4"
     dbpass         = "Demo4sql"
+    pip3_tag       = "pip3"
+    
 }
