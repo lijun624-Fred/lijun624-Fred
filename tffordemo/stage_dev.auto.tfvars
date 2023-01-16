@@ -7,8 +7,6 @@ databricks_var = {
 }
 
 app_service_var = {
-    rg_name        = "DefaultResourceGroup-CNE2-chinanorth3"
-    rg_location    = "China North 3"
     app_name       = "demo4"
     plan_name      = "ASP-DefaultResourceGroupCNE2chinano-81bf"
     plan_tier      = "Basic"
