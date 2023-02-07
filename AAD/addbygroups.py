@@ -10,9 +10,9 @@ def group_copy_membership():
             groupname = groupname.strip('\n')
             cmd_group_list = "az ad group member list --group " + groupname + " |grep userPrincipalName|awk '{print $2}'"
             memberlist = os.popen(cmd_group_list).read()
-            nt_member = memberlist.replace(role_assign.old_domain, role_assign.new_domain).split('\n')
-            if nt_member[-1] == '': nt_member.pop()  #remove the empty element in the end
-            for member in nt_member:
+            nt_memberlist = memberlist.replace(role_assign.old_domain, role_assign.new_domain).split('\n')
+            if nt_memberlist[-1] == '': nt_memberlist.pop()  #remove the empty element in the end
+            for member in nt_memberlist:
                 cmd_add_membership = "az ad group member add --group " + groupname + " --member-id " + member
                 print(cmd_add_membership)
 
