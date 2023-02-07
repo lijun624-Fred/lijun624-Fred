@@ -18,7 +18,8 @@ def get_role_assignment():
             role_list = json.loads(role_json)
             for role_dic in role_list:
                 user_name = role_dic['principalName']
-                if role_dic['scope'].find('providers') > 0:
+                ## when contains 'providers', it's resource level assingment, if not its subsciption level assignment
+                if role_dic['scope'].find('providers') > 0:   
                     cmd_assign = "az role assignment create --assignee " + user_name.replace(old_domain, new_domain) + " --role " + role_dic['roleDefinitionName'] + " --scope " + role_dic['scope']
                 else:
                     cmd_assign = "az role assignment create --assignee " + user_name.replace(old_domain, new_domain) + " --role " + role_dic['roleDefinitionName'] + " --subscription " + role_dic['scope']

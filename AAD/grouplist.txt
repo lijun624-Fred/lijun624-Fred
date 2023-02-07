@@ -1,0 +1,3 @@
+testworkspace
+idm2bcd_CIAM_CN_DEV_Subscription_Reader
+idm2bcd_mdp_szh2_archive_reader
