@@ -19,11 +19,14 @@ def get_role_assignment():
             role_json = result.read()
             role_list = json.loads(role_json)
             for role_dic in role_list:
-                user_name = role_dic['principalName'].split ("@")[0]  #fred.li
-                ntname = df.loc [df['email'] == user_name, 'ntname'].item() #ilf2szh@bosch.com
-                new_upn = ntname.split ("@")[0] + new_domain #ilf2szh_bosch.com#EXT#@boschcn.partner.onmschina.cn
-                cmd_assign = "az role assignment create --assignee " + new_upn + " --role " + role_dic['roleDefinitionName'] + " --scope " + role_dic['scope']
-                print(cmd_assign)
+                user_name = str(role_dic['principalName'].split ("@")[0]).lower()  #fred.li
+                if df['email'].str.contains(user_name).any():
+                    ntname = df.loc [df['email'] == user_name, 'ntname'].item() #ilf2szh@bosch.com
+                    new_upn = ntname.split ("@")[0] + new_domain #ilf2szh_bosch.com#EXT#@boschcn.partner.onmschina.cn
+                    cmd_assign = "az role assignment create --assignee " + new_upn + " --role '" + role_dic['roleDefinitionName'] + "' --scope " + role_dic['scope']
+                    print(cmd_assign)
+                else:
+                    print(user_name)    #the user doesn't exist
 
 if __name__ == "__main__":
     get_role_assignment()
