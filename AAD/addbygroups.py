@@ -9,7 +9,7 @@ def group_copy_membership():
             if not groupname:
                 break
             groupname = groupname.strip('\n')
-            cmd_group_list = "az ad group member list --group " + groupname + " |grep userPrincipalName|awk '{print $2}'"
+            cmd_group_list = "az ad group member list --group '" + groupname + "' |grep userPrincipalName|awk '{print $2}'"
             memberlist = os.popen(cmd_group_list).read()
             nt_memberlist = memberlist.split('\n')
             if nt_memberlist[-1] == '': nt_memberlist.pop()  #remove the empty element in the end
@@ -22,7 +22,7 @@ def group_copy_membership():
                     result = os.popen(cmd_objectid)
                     objectid_json = result.read()
                     user_object_id = json.loads(objectid_json)
-                    cmd_add_membership = "az ad group member add --group " + groupname + " --member-id " + user_object_id['id']
+                    cmd_add_membership = "az ad group member add --group '" + groupname + "' --member-id " + user_object_id['id']
                     print(cmd_add_membership)
                 else:
                     print(mail_name)    #the user doesn't exist
